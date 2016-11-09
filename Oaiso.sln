@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Oaiso", "Oaiso\Oaiso.csproj", "{9264B627-93F5-467F-8B5A-6C4C22285DB8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Oaiso.Tests", "Oaiso.Tests\Oaiso.Tests.csproj", "{9E6DD356-D1EA-4E8D-8413-DF0296B9490F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9264B627-93F5-467F-8B5A-6C4C22285DB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9264B627-93F5-467F-8B5A-6C4C22285DB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9264B627-93F5-467F-8B5A-6C4C22285DB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9264B627-93F5-467F-8B5A-6C4C22285DB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E6DD356-D1EA-4E8D-8413-DF0296B9490F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E6DD356-D1EA-4E8D-8413-DF0296B9490F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E6DD356-D1EA-4E8D-8413-DF0296B9490F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E6DD356-D1EA-4E8D-8413-DF0296B9490F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
