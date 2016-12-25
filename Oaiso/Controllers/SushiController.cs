@@ -24,7 +24,8 @@ namespace Oaiso.Controllers
 
             try
             {
-                if (!param.token.Equals(ConfigurationManager.AppSettings["SlackToken"].ToString()))
+                var slotName = Environment.GetEnvironmentVariable("SlackToken") ?? "None";
+                if (slotName.Equals("None"))
                     return Result(HttpStatusCode.OK, "お前誰？");
 
                 // 受け取ったtextをチェック。支払者と金額が正しく入力されていればOK.
@@ -41,9 +42,9 @@ namespace Oaiso.Controllers
                     response.text = "なに言ってんだお前？";
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                response.text = "なんかヘンだぜ？";
+                response.text = "なんかヘンだぜ？" + e.StackTrace;
             }
             response.response_type = "in_channel";
             return Result(HttpStatusCode.OK, response);
@@ -63,7 +64,8 @@ namespace Oaiso.Controllers
             string retval = string.Empty;
             try
             {
-                if (!param.token.Equals(ConfigurationManager.AppSettings["SlackTokenOkami"].ToString()))
+                var slotName = Environment.GetEnvironmentVariable("SlackTokenOkami") ?? "None";
+                if (slotName.Equals("None"))
                     return Result(HttpStatusCode.OK, "あなた誰？");
                 
                 // Optionがclearならtsukeをクリア、showなら支払記録を照会する
@@ -84,9 +86,9 @@ namespace Oaiso.Controllers
                 response.text = retval;
                 response.response_type = "in_channel";
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                response.text = "なにかおかしいわね。" + param.text;
+                response.text = "なにかおかしいわね... " + e.StackTrace;
             }
             return Result(HttpStatusCode.OK, response);
         }
