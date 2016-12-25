@@ -10,9 +10,6 @@ namespace Oaiso.Controllers
 {
     public class SushiController : ApiController
     {
-        private const string AzureSqlServerPrefix = "SQLAZURECONNSTR_";
-        private string connStr = ConfigurationManager.ConnectionStrings["AzureSQLConnectionString"].ConnectionString;
-
         /// <summary>
         /// Slackの「/oaiso」コマンドから呼び出され、寿司の支払いを記録します。
         /// </summary>
@@ -47,7 +44,7 @@ namespace Oaiso.Controllers
             }
             catch (Exception e)
             {
-                response.text = "なんかヘンだぜ？" + e.StackTrace + " cmd:" + param.text;
+                response.text = "なんかヘンだぜ？" + e.StackTrace;
             }
             response.response_type = "in_channel";
             return Result(HttpStatusCode.OK, response);
@@ -91,7 +88,7 @@ namespace Oaiso.Controllers
             }
             catch (Exception e)
             {
-                response.text = "なにかおかしいわね... " + e.StackTrace + "\n" + connStr;
+                response.text = "なにかおかしいわね... " + e.StackTrace;
             }
             return Result(HttpStatusCode.OK, response);
         }

@@ -7,7 +7,6 @@ namespace Oaiso.Models
 {
     public class Calculator
     {
-        private const string AzureSqlServerPrefix = "SQLAZURECONNSTR_";
         private string connStr = ConfigurationManager.ConnectionStrings["AzureSQLConnectionString"].ConnectionString;
 
         /// <summary>
