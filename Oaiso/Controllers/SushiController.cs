@@ -42,9 +42,9 @@ namespace Oaiso.Controllers
                     response.text = "なに言ってんだお前？";
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                response.text = "なんかヘンだぜ？";
+                response.text = "なんかヘンだぜ？" + e.StackTrace + " cmd:" + param.text;
             }
             response.response_type = "in_channel";
             return Result(HttpStatusCode.OK, response);
@@ -86,9 +86,9 @@ namespace Oaiso.Controllers
                 response.text = retval;
                 response.response_type = "in_channel";
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                response.text = "なにかおかしいわね。" + param.text;
+                response.text = "なにかおかしいわね... " + e.StackTrace + " cmd:" + param.text;
             }
             return Result(HttpStatusCode.OK, response);
         }
