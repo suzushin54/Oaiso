@@ -11,7 +11,7 @@ namespace Oaiso.Controllers
     public class SushiController : ApiController
     {
         private const string AzureSqlServerPrefix = "SQLAZURECONNSTR_";
-        private string connStr = AzureSqlServerPrefix + ConfigurationManager.ConnectionStrings["AzureSQLConnectionString"].ConnectionString;
+        private string connStr = ConfigurationManager.ConnectionStrings["AzureSQLConnectionString"].ConnectionString;
 
         /// <summary>
         /// Slackの「/oaiso」コマンドから呼び出され、寿司の支払いを記録します。
