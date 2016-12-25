@@ -24,7 +24,8 @@ namespace Oaiso.Controllers
 
             try
             {
-                if (!param.token.Equals(ConfigurationManager.AppSettings["SlackToken"].ToString()))
+                var slotName = Environment.GetEnvironmentVariable("SlackToken") ?? "None";
+                if (slotName.Equals("None"))
                     return Result(HttpStatusCode.OK, "お前誰？");
 
                 // 受け取ったtextをチェック。支払者と金額が正しく入力されていればOK.
@@ -63,7 +64,8 @@ namespace Oaiso.Controllers
             string retval = string.Empty;
             try
             {
-                if (!param.token.Equals(ConfigurationManager.AppSettings["SlackTokenOkami"].ToString()))
+                var slotName = Environment.GetEnvironmentVariable("SlackTokenOkami") ?? "None";
+                if (slotName.Equals("None"))
                     return Result(HttpStatusCode.OK, "あなた誰？");
                 
                 // Optionがclearならtsukeをクリア、showなら支払記録を照会する
