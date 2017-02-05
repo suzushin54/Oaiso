@@ -58,6 +58,31 @@ namespace Oaiso.Models
             return sb.ToString();
         }
 
+        public string FetchAllLog()
+        {
+            string selSql = "select name, amount, insert_time from orderlog;";
+            var sb = new StringBuilder();
+            sb.Append("はい、これまでの記録です。\n");
+            using (var conn = new SqlConnection(connStr))
+            {
+                conn.Open();
+                var cmd = new SqlCommand(selSql, conn);
+
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    sb.Append(dr["name"].ToString());
+                    sb.Append(", ");
+                    int n = Int32.Parse(dr["amount"].ToString());
+                    string str = String.Format("{0:#,0} 円", n); // 変換後
+                    sb.Append(str + ", ");
+                    sb.Append(dr["insert_time"].ToString());
+                    sb.Append("\n");
+                }
+            }
+            return sb.ToString();
+        }
+
         /// <summary>
         /// orderlogテーブルを空にします。
         /// </summary>

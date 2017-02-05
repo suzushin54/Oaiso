@@ -77,7 +77,10 @@ namespace Oaiso.Controllers
                 else if(param.text.Equals("show"))
                 {
                     retval = calc.FetchPaymentResultByName();
-                } else
+                } else if (param.text.Equals("showlog"))
+                {
+                    retval = calc.FetchAllLog();
+                } else 
                 {
                     retval = "よくわからないわ。";
                 }
