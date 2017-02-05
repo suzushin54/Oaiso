@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Text;
@@ -48,8 +49,9 @@ namespace Oaiso.Models
                 {
                     sb.Append(dr["name"].ToString());
                     sb.Append("さんは、");
-                    sb.Append(dr["total"].ToString());
-                    sb.Append("円  ");
+                    int n = Int32.Parse(dr["total"].ToString());
+                    string str = String.Format("{0:#,0} 円", n); // 変換後
+                    sb.Append(str + "  ");
                 }
             }
             return sb.ToString();
