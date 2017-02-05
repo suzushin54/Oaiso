@@ -16,10 +16,11 @@ namespace Oaiso.Models
         /// <param name="payer">支払者</param>
         /// <param name="amount">金額</param>
         /// <returns>ExecuteNonQueryの戻り値</returns>
-        public int Exec(string payer, int amount)
+        public int Exec(string payer, int amount, string user_id)
         {
             int result = -1;
-            string insSql = "insert into orderlog(name, amount) values ('" + payer + "', " + amount + ");";
+            string insSql = 
+                "insert into orderlog(name, amount, insert_user) values ('" + payer + "', " + amount + "', " + user_id + ");";
             using (var conn = new SqlConnection(connStr))
             {
                 var cmd = new SqlCommand(insSql, conn);

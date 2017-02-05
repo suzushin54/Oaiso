@@ -33,7 +33,7 @@ namespace Oaiso.Controllers
                 {
                     // 支払者と金額をDB登録して、その結果を受け取る
                     var calc = new Calculator();
-                    int execRetval = calc.Exec(values[0].ToString(), amount);
+                    int execRetval = calc.Exec(values[0].ToString(), amount, param.user_id);
 
                     // 登録に成功したら、orderlogに存在する支払者リストを取得して、支払い合計金額を支払者別に取得する
                     response.text = (execRetval == 1) ? "支払いを記録したぜ。" : "支払いの記録に失敗したぜ？";
