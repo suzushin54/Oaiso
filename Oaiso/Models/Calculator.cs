@@ -20,7 +20,7 @@ namespace Oaiso.Models
         {
             int result = -1;
             string insSql = 
-                "insert into orderlog(name, amount, insert_user) values ('" + payer + "', " + amount + "', " + user_id + ");";
+                "insert into orderlog(name, amount, insert_user) values ('" + payer + "', " + amount + "', '" + user_id + "');";
             using (var conn = new SqlConnection(connStr))
             {
                 var cmd = new SqlCommand(insSql, conn);
